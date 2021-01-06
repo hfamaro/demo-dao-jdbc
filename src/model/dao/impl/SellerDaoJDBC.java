@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.mysql.jdbc.Statement;
-import com.sun.tools.jconsole.JConsoleContext.ConnectionState;
 
 import db.DB;
 import db.DbException;
@@ -111,7 +110,7 @@ public class SellerDaoJDBC implements SellerDao {
 
 			ps.setInt(1, id);
 
-			int rowsAffected = ps.executeUpdate();
+			ps.executeUpdate();
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
 		} finally {
