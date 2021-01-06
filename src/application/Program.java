@@ -20,8 +20,18 @@ public class Program {
 		System.out.println();
 		System.out.println("=== TEST 2 Seller.findByDepartment ===");
 		System.out.println();
-		Department dep = new Department(5, null);
+		Department dep = new Department(2, null);
 		List<Seller> list = sd.findByDepartment(dep);
+		
+		for (Seller seller : list) {
+			System.out.println(seller);
+		}
+		
+		System.out.println();
+		System.out.println("=== TEST 3 Seller.FindAll ===");
+		System.out.println();
+		
+		list = sd.findAll();
 		
 		for (Seller seller : list) {
 			System.out.println(seller);
