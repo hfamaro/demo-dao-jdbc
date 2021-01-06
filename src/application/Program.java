@@ -3,6 +3,7 @@ package application;
 import java.util.Date;
 import java.util.List;
 
+import db.DbException;
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
 import model.entities.Department;
@@ -48,6 +49,28 @@ public class Program {
 		
 		System.out.println("New seller inserted with key: " +  newSeller.getId());
 		System.out.println("New seller data: " +  newSeller);
+		
+		System.out.println();
+		System.out.println("=== TEST 5 Seller.Insert ===");
+		System.out.println();
+		
+		int updateId = 19;
+		
+		Seller updateSeller = sd.findById(updateId);
+		
+		if (updateSeller != null) {
+			updateSeller.setName("Arthur Felipe");
+			updateSeller.setEmail("arthur.felipe@gmail.com");
+			
+			sd.update(updateSeller);
+			
+			System.out.println("Seller "+updateId+" is updated. ");
+			System.out.println("New data: "+ updateSeller);
+		}
+		else {
+			throw new DbException("Seller not found!");
+		}
+		
 	}
 
 }
