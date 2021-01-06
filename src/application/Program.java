@@ -2,6 +2,7 @@ package application;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import db.DbException;
 import model.dao.DaoFactory;
@@ -71,6 +72,21 @@ public class Program {
 			throw new DbException("Seller not found!");
 		}
 		
+		System.out.println();
+		System.out.println("=== TEST 6 Seller.Delete ===");
+		System.out.println();
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the seller id: ");
+		
+		int id = sc.nextInt();
+		
+		sd.deleteById(id);
+		
+		System.out.println("Seller deleted successfull!");
+		
+		sc.close();
 	}
 
 }
